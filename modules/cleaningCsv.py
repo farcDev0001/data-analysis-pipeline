@@ -12,3 +12,4 @@ def getDfPop():
     df = df.sort_values(by=['PopAvg'],ascending=False).reset_index()[['Country Code', 'Country','PopAvg']]
     return df
 
+
