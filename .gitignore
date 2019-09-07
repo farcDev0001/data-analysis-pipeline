@@ -1,3 +1,6 @@
 #testCode
 modules/pruebas
+#pyCache
+modules/__pycache__
+#.env
 .env
