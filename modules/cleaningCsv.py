@@ -1,4 +1,4 @@
-def cleaningCsv():
+def getDfPop():
     import pandas as pd
     from getEnv import getVariable
     listCountry = getVariable("listCountry")
