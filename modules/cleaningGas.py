@@ -27,6 +27,6 @@ def getDfGas():
     newDf[cCode] = [listTupleValues[i][0] for i in range(len(listTupleValues)) for j in range(len(listYear))]
     newDf['YEAR'] = [ele for ele in (listYear*8)]
     newDf['gas/hab']=[listTupleValues[i][j] for i in range(len(listTupleValues)) for j in range(1,len(listTupleValues[i]))]
-
+    newDf['gas/hab'] =list(map(lambda ele: float(str(ele).split()[0]),(list(newDf['gas/hab'].values))))
     return newDf
 

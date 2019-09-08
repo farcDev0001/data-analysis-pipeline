@@ -1,4 +1,5 @@
 def getMergedDf():
+    import pandas as pd
     from cleaningCsv import getDfPop
     from dataFromApi import getDfdischarges
     from cleaningGas import getDfGas

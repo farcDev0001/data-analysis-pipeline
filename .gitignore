@@ -7,3 +7,5 @@ modules/__pycache__
 #tests
 .ipynb_checkpoints/
 gas.ipynb
+
+outputs/
