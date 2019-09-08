@@ -1,8 +1,7 @@
 # data-analysis-pipeline
-Hospital discharges, mental and behavioral disorders and federated athletes by country and year
+Hospital discharges, mental and behavioral disorders and Greenhouse gas emissions
 
 # References
 * https://dw.euro.who.int/api/v3/measures/HFA_386?lang=En
-* https://www.kaggle.com/chadalee/country-wise-population-data
-* https://en.wikipedia.org/wiki/List_of_European_Union_member_states_by_population
-* https://ec.europa.eu/eurostat/data/database
+* https://www.kaggle.com/chadalee/country-wise-population-data 
+* https://ec.europa.eu/eurostat/databrowser/view/sdg_13_10/default/table?lang=en
