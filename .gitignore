@@ -4,3 +4,6 @@ modules/pruebas
 modules/__pycache__
 #.env
 .env
+#tests
+.ipynb_checkpoints/
+gas.ipynb
