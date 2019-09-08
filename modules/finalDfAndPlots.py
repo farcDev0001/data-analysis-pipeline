@@ -8,7 +8,7 @@ def getFinalCountryDf(countryCode):
     df = df[['Year', 'dischargesPer1000hab','tonnesPerCap']]
     df = df.reset_index()
     df = df[['Year', 'dischargesPer1000hab','tonnesPerCap']]
-    getPlotbyCountry(df,countryCode,'Year','dischargesPer1000hab','tonnesPerCap')
+    df = getPlotbyCountry(df,countryCode,'Year','dischargesPer1000hab','tonnesPerCap')
     return df
 
 def getFinalYearDf(year):
@@ -26,12 +26,14 @@ def getFinalYearDf(year):
 
 def getPlotbyCountry(df,ccode,x,y1,y2):
     import matplotlib.pyplot as plt
+    dfret = df
     ax = plt.gca()
     df.plot(kind='line',x=x,y=y1,ax=ax)
     df.plot(kind='line',x=x,y=y2, color='red', ax=ax)
     plt.title("HOSPITAL DISCHARGES, MENTAL AND BEHAVIOURAL DISORDERS AND\nGREENHOUSE GAS EMISSIONS IN {}".format(ccode))
     plt.savefig('./../outputs/{}.png'.format(ccode))
     plt.show()
+    return dfret
 
 def getPlotbyYear(df,year,x,y1,y2):
     import matplotlib.pyplot as plt
