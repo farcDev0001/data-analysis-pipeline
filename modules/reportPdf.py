@@ -41,7 +41,7 @@ class PDF(FPDF):
     def print_chapter(self,image,text):
         self.chapter_body(image,text)
 
-def exportRep(pathPDF,pathPng,pathTxt = './../outputs/report.txt'):
+def exportRep(pathPDF,pathPng,pathTxt = './../inputs/report.txt'):
     pdf = PDF()
     pdf.alias_nb_pages()
     pdf.add_page()
