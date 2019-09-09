@@ -5,13 +5,13 @@ def sendEmail(pathPdf):
     from email.mime.base import MIMEBase
     from email.mime.multipart import MIMEMultipart
     from email.mime.text import MIMEText
+    from getEnv import getVariable
 
     subject = "An email with attachment from Python"
     body = "Report in pdf"
-    sender_email = "pdata346@gmail.com"
+    sender_email = getVariable('email')[0]
     receiver_email = input('Insert the receiver email: ')
-    from getEnv import getVariable
-    password = getVariable('dataPass')[0]
+    password = getVariable('password')[0]
     # Create a multipart message and set headers
     message = MIMEMultipart()
     message["From"] = sender_email

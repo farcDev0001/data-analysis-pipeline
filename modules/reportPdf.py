@@ -23,7 +23,7 @@ class PDF(FPDF):
         self.set_font('Times', '', 12)
         #Leer
         with open(text, 'rb') as fh:
-            txt = fh.read().decode('latin-1')
+            txt = fh.read().decode('utf8')
         # Emitir texto justificado
         self.multi_cell(0, 5, txt)
         

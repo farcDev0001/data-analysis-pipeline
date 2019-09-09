@@ -1,11 +1,11 @@
-fullreport
-Write your report in ./../inputs/report.txt.......................................................................................................\n
-Write your report in ./../inputs/report.txt.......................................................................................................\n
-Write your report in ./../inputs/report.txt.......................................................................................................\n
-Write your report in ./../inputs/report.txt.......................................................................................................\n
-Write your report in ./../inpputs/report.txt.......................................................................................................\n
-Write your report in ./../inputs/report.txt.......................................................................................................\n
-Write your report in ./../inputs/report.txt.......................................................................................................\n
-Write your report in ./../inputs/report.txt.......................................................................................................\n
-Write your report in ./../inputs/report.txt.......................................................................................................\n
+Partiendo de la base que durante estos años la emisión de los gases de efecto invernadero un indicador de prosperidad macroéconómica se puede afirmar
+que influye de alguna manera en las altas hospitalarias por causas de salud mental.
+Desde el año 2000 hasta el 2007 hay una meseta en la línea de emisión de gases marcándo máximos durante esos años, esto se debe a la época de bonanza
+económica durante esos años.
+En la linea de altas hospitalarias es ascendente hasta 2004, probablemente porque es el año a partir del cual la riqueza económica empieza a repercutir
+repercutir en el grueso de la población de una manera más destacada, se sabe que los indicadores macroéconómicos necesitan unos años de crecimiento
+sostenido para que lo note la microeconomía, es por eso que a partir de 2004 bajan las altas hospitalarias por problemas de salud mental.
+La línea azul no comenzará a subir de nuevo hasta 2007 de una manera apreciable por razones lógicas, comienza la crisis financiera, eso se nota
+también en la línea de emisión de gases incluso de una manera más notable.
+Para elaborar la gráfique quité los outliers.
 
