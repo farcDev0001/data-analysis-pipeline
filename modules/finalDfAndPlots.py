@@ -21,7 +21,8 @@ def getFinalYearDf(year):
     df = df[['Country Code', 'dischargesPer1000hab','tonnesPerCap']]
     df = df.reset_index()
     df = df[['Country Code', 'dischargesPer1000hab','tonnesPerCap']]
-    getPlotbyYear(df,year,'Country Code', 'dischargesPer1000hab','tonnesPerCap')    
+    getPlotbyYear(df,year,'Country Code', 'dischargesPer1000hab','tonnesPerCap')
+    
     return df
 
 def getPlotbyCountry(df,ccode,x,y1,y2):
@@ -32,6 +33,10 @@ def getPlotbyCountry(df,ccode,x,y1,y2):
     df.plot(kind='line',x=x,y=y2, color='red', ax=ax)
     plt.title("HOSPITAL DISCHARGES, MENTAL AND BEHAVIOURAL DISORDERS AND\nGREENHOUSE GAS EMISSIONS IN {}".format(ccode))
     plt.savefig('./../outputs/{}.png'.format(ccode))
+
+    from reportPdf import exportRep
+    exportRep('./../outputs/{}.pdf'.format(ccode),'./../outputs/{}.png'.format(ccode))
+
     plt.show()
     return dfret
 
@@ -41,7 +46,11 @@ def getPlotbyYear(df,year,x,y1,y2):
     df.plot(x=x, y=[y1,y2], kind="bar")
     plt.title("HOSPITAL DISCHARGES, MENTAL AND BEHAVIOURAL\nDISORDERS AND GREENHOUSE GAS EMISSIONS IN {}".format(year))
     plt.savefig('./../outputs/{}.png'.format(year))
-    
+    './../outputs/report.txt'
+
+    from reportPdf import exportRep
+    exportRep('./../outputs/{}.pdf'.format(year),'./../outputs/{}.png'.format(year))
+
     plt.show()
 
 
