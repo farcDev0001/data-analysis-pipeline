@@ -19,9 +19,11 @@
 
 # Reporting
 
-* When you execute main.py (see -h) you will see the graph you chose. Then you can write your report in /inputs/report.txt. Save the txt (don´t move or rename it) and close de plote. The program import the plot and the content of report txt to a pdf in outputs.
+* When you execute main.py (see -h) you will see the graph you chose. 
+* The plot will be saved in outputs, please don´t send de email
+* Then you can write your report in /inputs/report.txt. Save the txt (don´t move or rename it) and close de plote. The program import the plot and the content of report.txt to a pdf in outputs.
+* Execute again the script and send de email if you want.
 
-* If you want, you can send an email automatically, the program will ask 
 
 # Personal report
 
