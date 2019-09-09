@@ -32,6 +32,7 @@ def getPlotbyCountry(df,ccode,x,y1,y2,full = False):
     df.plot(kind='line',x=x,y=y1,ax=ax)
     df.plot(kind='line',x=x,y=y2, color='red', ax=ax)
     plt.title("HOSPITAL DISCHARGES, MENTAL AND BEHAVIOURAL DISORDERS AND\nGREENHOUSE GAS EMISSIONS IN {}".format(ccode))
+    
     plt.savefig('./../outputs/{}.png'.format(ccode))
     
     from reportPdf import exportRep
