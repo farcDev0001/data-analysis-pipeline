@@ -6,6 +6,12 @@
 
 * Actually works for years 1990 to 2010 an for 8 countries in the UE. Yoy can choose the plot that you want to analyce by year or by country.
 
+* You can analyce and generate 29 differents plots
+
+* You take a lot of data from the World Health Organization API.
+
+* The other data is based on a kaggle csv and on Eurosat database
+
 # Important
 
 * AGREE YOUR PERSONAL .env IN MAIN DIRECTORY WITH THIS VARIABLES
