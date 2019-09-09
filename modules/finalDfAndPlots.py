@@ -35,6 +35,7 @@ def getPlotbyCountry(df,ccode,x,y1,y2,full = False):
     
     plt.savefig('./../outputs/{}.png'.format(ccode))
 
+    plt.show()
     
     from reportPdf import exportRep
     if full:
@@ -45,7 +46,7 @@ def getPlotbyCountry(df,ccode,x,y1,y2,full = False):
     
     
 
-    plt.show()
+    
     return dfret
 
 def getPlotbyYear(df,year,x,y1,y2):
@@ -53,12 +54,15 @@ def getPlotbyYear(df,year,x,y1,y2):
     
     df.plot(x=x, y=[y1,y2], kind="bar")
     plt.title("HOSPITAL DISCHARGES, MENTAL AND BEHAVIOURAL\nDISORDERS AND GREENHOUSE GAS EMISSIONS IN {}".format(year))
+    
     plt.savefig('./../outputs/{}.png'.format(year))
+
+    plt.show()
 
     from reportPdf import exportRep
     exportRep('./../outputs/{}.pdf'.format(year),'./../outputs/{}.png'.format(year))
 
-    plt.show()
+    
 
 
 def getFullYearReport():
