@@ -6,15 +6,16 @@
 
 * Actually works for years 1990 to 2010 an for 8 countries in the UE. Yoy can choose the plot that you want to analyce by year or by country.
 
-# IMPORTANT AGREE YOUR PERSONAL .env IN MAIN DIRECTORY WITH THIS FORMAT
+# Important
 
-listCountry=Germany UK Italy Spain Poland Romania Belgium Turkey
-listYear=1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010
-listCountryCode=BEL DEU ESP GBR ITA TUR POL ROU
-listCodeGas=BE DE ES UK IT TR PL RO
+* AGREE YOUR PERSONAL .env IN MAIN DIRECTORY WITH THIS VARIABLES
 
-email=YOUR@EMAIL
-password=YOUR@PASS
+    * listCountry=Germany UK Italy Spain Poland Romania Belgium Turkey
+    * listYear=1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010
+    * listCountryCode=BEL DEU ESP GBR ITA TUR POL ROU
+    * listCodeGas=BE DE ES UK IT TR PL RO
+    * email=YOUR@EMAIL
+    * password=YOUR@PASSWORD
 
 # Reporting
 
