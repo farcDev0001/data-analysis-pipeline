@@ -10,7 +10,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Options for your report')
 parser.add_argument("-i", "--integer", type=int, required = True, help='0=FULL 1=byYear 2=byCountry')
-parser.add_argument("-s", "--string", type=str, required=True,help='Years:1990 to 2016 Countries: FULL {}'.format(" ".join(getVariable('listCountryCode'))))
+parser.add_argument("-s", "--string", type=str, required=True,help='Years:1990 to 2010 Countries: FULL {}'.format(" ".join(getVariable('listCountryCode'))))
 
 args = parser.parse_args()    
 entrada = args.string
