@@ -25,7 +25,7 @@ def getFinalYearDf(year):
     
     return df
 
-def getPlotbyCountry(df,ccode,x,y1,y2):
+def getPlotbyCountry(df,ccode,x,y1,y2,full = False):
     import matplotlib.pyplot as plt
     dfret = df
     ax = plt.gca()
@@ -33,9 +33,13 @@ def getPlotbyCountry(df,ccode,x,y1,y2):
     df.plot(kind='line',x=x,y=y2, color='red', ax=ax)
     plt.title("HOSPITAL DISCHARGES, MENTAL AND BEHAVIOURAL DISORDERS AND\nGREENHOUSE GAS EMISSIONS IN {}".format(ccode))
     plt.savefig('./../outputs/{}.png'.format(ccode))
-
+    
     from reportPdf import exportRep
-    exportRep('./../outputs/{}.pdf'.format(ccode),'./../outputs/{}.png'.format(ccode))
+    if full:
+        exportRep('./../outputs/full.pdf','./../outputs/{}.png'.format(ccode),'./../outputs/full.txt')       
+        
+    else:
+        exportRep('./../outputs/{}.pdf'.format(ccode),'./../outputs/{}.png'.format(ccode))
 
     plt.show()
     return dfret
@@ -88,7 +92,7 @@ def getFullYearReport():
     dfWihoutOutliers = dfWihoutOutliers[['Year', 'dischargesPer1000hab','tonnesPerCap']]
     dfWihoutOutliers=dfWihoutOutliers.drop(dfWihoutOutliers.index[0])
 
-    getPlotbyCountry(dfWihoutOutliers," ".join(getVariable('listCountryCode')),'Year','dischargesPer1000hab','tonnesPerCap')
+    getPlotbyCountry(dfWihoutOutliers," ".join(getVariable('listCountryCode')),'Year','dischargesPer1000hab','tonnesPerCap',True)
     return  dfWihoutOutliers
 
 
