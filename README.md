@@ -34,7 +34,7 @@
 
 * It´s incluyed in outputs. Is based on avg data of all the countries and all the years removing outliers.
 
-* You can generate this plot and your own report using the option 0 (see -h)
+* You can generate this plot and your own report using the option 0 (see -h). Write full.txt for this report.
 
 # Possible Improvements
 
