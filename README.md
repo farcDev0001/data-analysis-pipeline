@@ -8,7 +8,7 @@
 
 * You can analyce and generate 29 differents plots
 
-* You take a lot of data from the World Health Organization API.
+* It takes a lot of data from the World Health Organization API.
 
 * The other data is based on a kaggle csv and on Eurosat database
 
