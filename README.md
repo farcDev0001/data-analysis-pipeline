@@ -10,7 +10,7 @@
 
 * It takes a lot of data from the World Health Organization API.
 
-* The other data is based on a kaggle csv and on Eurosat database
+* The other data is based on a kaggle csv and on Eurosat database (see References)
 
 # Important
 
