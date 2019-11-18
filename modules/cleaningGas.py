@@ -1,6 +1,13 @@
+import pandas as pd
+from getEnv import getVariable
+
 def getDfGas():
-    import pandas as pd
-    from getEnv import getVariable
+    """
+    Carga los datos de emisión de gases del efecto invernadero del dataset guardado en outputs, este dataset fue descargado
+    de una base de datos de la Comisión Europea
+    return:
+        df: Pandas DataFrame con los datos de emisiones con la forma adecuada.
+    """
     listCountry = getVariable("listCountry")
     listYear =getVariable("listYear")
     listCode =getVariable("listCountryCode")
