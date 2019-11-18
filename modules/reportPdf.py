@@ -1,8 +1,15 @@
 from fpdf import FPDF
 
 class PDF(FPDF):
+    """
+    Clase hija que hereda de FPDF que define la estructura de un informe para el proyecto actual de análisis de datos
+    """
     def header(self,title = 'REPORT'):
-        # Logo
+        """
+        Método que define la cabecera del informe
+        args:
+            title: String con el título del informe
+        """
         
         # Arial bold 15
         self.set_font('Arial', 'B', 15)
@@ -14,6 +21,12 @@ class PDF(FPDF):
         self.ln(20)
     
     def chapter_body(self,image,text):
+        """
+        Método que define el cuerpo del informe
+        args:
+            image: String con la ruta de la imagen
+            text: String con la ruta del txt con el texto
+        """
         
         self.image(image, 25, 25, 150)
         
@@ -30,6 +43,9 @@ class PDF(FPDF):
 
     # Page footer
     def footer(self):
+        """
+        Método que define el pie del informe
+        """
         # Position at 1.5 cm from bottom
         self.set_y(-15)
         # Arial italic 8
@@ -39,9 +55,23 @@ class PDF(FPDF):
 
 
     def print_chapter(self,image,text):
+        """
+        Método que integra la imagen y el texto en el cuerpo
+        args:
+            image: String con la ruta de la imagen
+            text: String con la ruta del txt con el texto
+        """
         self.chapter_body(image,text)
 
 def exportRep(pathPDF,pathPng,pathTxt = './../inputs/report.txt'):
+    """
+    Función que inicializa un objeto PDF a partir de las rutas de un mapa de bits y de un txt y lo guarda en forma de pdf 
+    en la ruta que se espicifique. 
+    args:
+        pathPDF: String con la ruta en la que se quiere guardar el pdf
+        pathPng: String con la ruta del mapa de bits que se queire integrar en el pdf
+        pathTxt. String con la ruta del archivo txt en el que esté el texto que se quiere integrar en el informe
+    """
     pdf = PDF()
     pdf.alias_nb_pages()
     pdf.add_page()
