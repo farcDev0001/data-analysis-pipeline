@@ -6,7 +6,13 @@ from email.mime.text import MIMEText
 from getEnv import getVariable
 
 def sendEmail(pathPdf):
-    
+    """
+    Envía email con el informe en pdf
+    args:
+       pathPdf: String ruta relativa en la que se encuentra el informe en pdf 
+    return:
+        None
+    """
     subject = "Informe adjunto en el Email"
     body = "Report in pdf"
     sender_email = getVariable('email')[0]
