@@ -1,13 +1,19 @@
-def wrongInput():
-    print('Wrong Input: use -h')
-    sys.exit()
-
 import argparse
 import os
 import sys
 from getEnv import getVariable
 import argparse
 from emailSend import sendEmail
+
+"""Script python principal de la aplicación, al ejecutarlo muestra las diferentes
+opciones que tiene el usuario"""
+
+def wrongInput():
+    """Muestra mensaje de ayuda en caso
+    de que la entrada del usuario sea incorrecta y 
+    termina la ejecución del programa"""
+    print('Wrong Input: use -h')
+    sys.exit()
 
 parser = argparse.ArgumentParser(description='Options for your report')
 parser.add_argument("-i", "--integer", type=int, required = True, help='0=FULL 1=byYear 2=byCountry')
@@ -18,12 +24,10 @@ entrada = args.string
 option = args.integer
 
 if option==0:
-    
     from finalDfAndPlots import getFullYearReport
     print(getFullYearReport())
     if input('Send a email with report?(Y/other) ') == 'Y':
         sendEmail('./../outputs/{}.pdf'.format('full'))
-
 
 elif option==1:
     if entrada not in getVariable('listYear'):
