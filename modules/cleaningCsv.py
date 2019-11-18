@@ -1,6 +1,13 @@
+import pandas as pd
+from getEnv import getVariable
+
 def getDfPop():
-    import pandas as pd
-    from getEnv import getVariable
+    """
+    Computa el cuadro de datos de población de los países que integra la aplicación a partir de un dataset de Kaggle
+    que está guardado en la carpeta inputs, en la raíz del proyecto.
+    return:
+        df: Pandas DataFrame con los datos de población de los paises
+    """
     listCountry = getVariable("listCountry")
     listYear = getVariable("listYear")
     df = pd.read_csv("../inputs/world_pop.csv")
