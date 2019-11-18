@@ -1,8 +1,14 @@
+import pandas as pd
+from cleaningCsv import getDfPop
+from dataFromApi import getDfdischarges
+from cleaningGas import getDfGas
+
 def getMergedDf():
-    import pandas as pd
-    from cleaningCsv import getDfPop
-    from dataFromApi import getDfdischarges
-    from cleaningGas import getDfGas
+    """
+    Enriquece los datos de la api con los datos de la población de los países
+    return:
+        df: Pandas DataFrame enriquecido
+    """
     dfPop = getDfPop()
     dfDis = getDfdischarges()
     dfDis.columns = ['Country Code', 'YEAR', 'discharges/10**5hab']
