@@ -2,8 +2,10 @@ import argparse
 import os
 import sys
 from getEnv import getVariable
-import argparse
 from emailSend import sendEmail
+from finalDfAndPlots import getFullYearReport
+from finalDfAndPlots import getFinalYearDf
+from finalDfAndPlots import getFinalCountryDf
 
 """Script python principal de la aplicación, al ejecutarlo muestra las diferentes
 opciones que tiene el usuario"""
@@ -24,7 +26,6 @@ entrada = args.string
 option = args.integer
 
 if option==0:
-    from finalDfAndPlots import getFullYearReport
     print(getFullYearReport())
     if input('Send a email with report?(Y/other) ') == 'Y':
         sendEmail('./../outputs/{}.pdf'.format('full'))
@@ -32,7 +33,6 @@ if option==0:
 elif option==1:
     if entrada not in getVariable('listYear'):
         wrongInput()
-    from finalDfAndPlots import getFinalYearDf
     print(getFinalYearDf(entrada))
     if input('Send a email with report?(Y/other) ') == 'Y':
         sendEmail('./../outputs/{}.pdf'.format(entrada))
@@ -40,7 +40,6 @@ elif option==1:
 elif option==2:
     if entrada not in getVariable('listCountryCode'):
         wrongInput()
-    from finalDfAndPlots import getFinalCountryDf
     print(getFinalCountryDf(entrada))
     if input('Send a email with report?(Y/other) ') == 'Y':
         sendEmail('./../outputs/{}.pdf'.format(entrada))
