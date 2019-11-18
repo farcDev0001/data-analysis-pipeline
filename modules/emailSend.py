@@ -1,50 +1,50 @@
+import email, smtplib, ssl
+from email import encoders
+from email.mime.base import MIMEBase
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from getEnv import getVariable
+
 def sendEmail(pathPdf):
-    import email, smtplib, ssl
-
-    from email import encoders
-    from email.mime.base import MIMEBase
-    from email.mime.multipart import MIMEMultipart
-    from email.mime.text import MIMEText
-    from getEnv import getVariable
-
-    subject = "An email with attachment from Python"
+    
+    subject = "Informe adjunto en el Email"
     body = "Report in pdf"
     sender_email = getVariable('email')[0]
     receiver_email = input('Insert the receiver email: ')
     password = getVariable('password')[0]
-    # Create a multipart message and set headers
+    
+    # Cabecera del email
     message = MIMEMultipart()
     message["From"] = sender_email
     message["To"] = receiver_email
     message["Subject"] = subject
     message["Bcc"] = receiver_email  # Recommended for mass emails
 
-    # Add body to email
+    # Cuerpo del email
     message.attach(MIMEText(body, "plain"))
 
-    filename = pathPdf # In same directory as script
+    filename = pathPdf # el nombre va a ser el mismo que el del pdf
 
-    # Open PDF file in binary mode
+    # Abro el pdf
     with open(filename, "rb") as attachment:
-    # Add file as application/octet-stream
-    # Email client can usually download this automatically as attachment
+    
         part = MIMEBase("application", "octet-stream")
         part.set_payload(attachment.read())
 
-    # Encode file in ASCII characters to send by email    
+    # Codificación en ASCII     
     encoders.encode_base64(part)
 
-    # Add header as key/value pair to attachment part
+    # Añado la cabecera
     part.add_header(
         "Content-Disposition",
         f"attachment; filename= {filename}",
     )
 
-    # Add attachment to message and convert message to string
+    # Se agrega el archivo adjunto
     message.attach(part)
     text = message.as_string()
 
-    # Log in to server using secure context and send email
+    # Login usando protocolo seguro ssl y envío del mail
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
         server.login(sender_email, password)
