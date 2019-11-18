@@ -1,6 +1,13 @@
+import pandas as pd
+from getEnv import getVariable
+import requests
+
 def getDfdischarges():
-    import pandas as pd
-    from getEnv import getVariable
+    """
+    Computa el cuadro de datos de los países y los ingresos hospitalarios por años
+    return:
+        df: Pandas DataFrame con los ingresos hospitalarios
+    """
     listCodeEnv = getVariable("listCountryCode")
     listYear = getVariable("listYear")
     data = getJsonData()
@@ -25,7 +32,11 @@ def getDfdischarges():
 
 
 def getJsonData():
-    import requests
+    """
+    Llama a la API y devuelve un json con los datos
+    return:
+        None
+    """
     r = requests.get("https://dw.euro.who.int/api/v3/measures/HFA_386?lang=En")
     if r.status_code != 200:
         raise ConnectionError("urlInvalid")
