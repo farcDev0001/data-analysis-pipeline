@@ -6,13 +6,6 @@ from reportPdf import exportRep
 from getEnv import getVariable
 
 def getFinalCountryDf(countryCode):
-    """
-    Devuelve el cuadro de datos de un país a partir de su código
-    args: 
-        countryCode:Código de país
-    return:
-        df: Pandas DataFrame
-    """
     df = getMergedDf()
     df = df.loc[df['Country Code']==countryCode]
     df['discharges/10**5hab']= df['discharges/10**5hab'].apply(lambda ele: ele/100)

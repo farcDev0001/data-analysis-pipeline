@@ -8,3 +8,17 @@ modules/__pycache__
 .ipynb_checkpoints/
 gas.ipynb
 
+.vscode/
+esquemasql.txt
+
+modules/pruebas.ipynb
+outputs/1995.pdf
+outputs/1995.png
+outputs/2009.pdf
+outputs/2009.png
+outputs/ESP.pdf
+outputs/ESP.png
+outputs/GBR.pdf
+outputs/GBR.png
+pandas/
+
