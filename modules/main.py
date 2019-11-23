@@ -6,6 +6,7 @@ from emailSend import sendEmail
 from finalDfAndPlots import getFullYearReport
 from finalDfAndPlots import getFinalYearDf
 from finalDfAndPlots import getFinalCountryDf
+from dataBase import resetDB
 
 """Script python principal de la aplicación, al ejecutarlo muestra las diferentes
 opciones que tiene el usuario"""
@@ -18,8 +19,8 @@ def wrongInput():
     sys.exit()
 
 parser = argparse.ArgumentParser(description='Options for your report')
-parser.add_argument("-i", "--integer", type=int, required = True, help='0=FULL 1=byYear 2=byCountry')
-parser.add_argument("-s", "--string", type=str, required=True,help='Years:1990 to 2010 Countries: FULL {}'.format(" ".join(getVariable('listCountryCode'))))
+parser.add_argument("-i", "--integer", type=int, required = True, help='0=Full Report 1=byYear 2=byCountry 3=Create or Update DB')
+parser.add_argument("-s", "--string", type=str, required=True,help='Years:1990 to 2010 Countries: {}'.format(" ".join(getVariable('listCountryCode'))))
 
 args = parser.parse_args()    
 entrada = args.string
@@ -43,6 +44,10 @@ elif option==2:
     print(getFinalCountryDf(entrada))
     if input('Send a email with report?(Y/other) ') == 'Y':
         sendEmail('./../outputs/{}.pdf'.format(entrada))
+
+elif option==3:
+    resetDB()
+
 else:
     wrongInput()   
 
