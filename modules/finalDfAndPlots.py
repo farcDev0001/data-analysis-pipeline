@@ -1,12 +1,12 @@
 import pandas as pd
-from mergeDf import getMergedDf
 import matplotlib.pyplot as plt
 from reportPdf import exportRep
 from reportPdf import exportRep
 from getEnv import getVariable
+from dataBase import getDfFromDB
 
 def getFinalCountryDf(countryCode):
-    df = getMergedDf()
+    df = getDfFromDB()
     df = df.loc[df['Country Code']==countryCode]
     df['discharges/10**5hab']= df['discharges/10**5hab'].apply(lambda ele: ele/100)
     df.columns = ['Country Code', 'Country', 'PopAvg', 'Year', 'dischargesPer1000hab','tonnesPerCap']
@@ -24,7 +24,7 @@ def getFinalYearDf(year):
     return:
         df: Pandas DataFrame
     """
-    df = getMergedDf()
+    df = getDfFromDB()
     df = df.loc[df['YEAR']==year]
     df['discharges/10**5hab']= df['discharges/10**5hab'].apply(lambda ele: ele/100)
     df.columns = ['Country Code', 'Country', 'PopAvg', 'Year', 'dischargesPer1000hab','tonnesPerCap']
@@ -85,7 +85,7 @@ def getFullYearReport():
     return:
         df: Pandas DataFrame
     """
-    df = getMergedDf()
+    df = getDfFromDB()
     df['discharges/10**5hab']= df['discharges/10**5hab'].apply(lambda ele: ele/100)
     df.columns = ['Country Code', 'Country', 'PopAvg', 'Year', 'dischargesPer1000hab','tonnesPerCap']
     df = df[['Year', 'dischargesPer1000hab','tonnesPerCap']]
