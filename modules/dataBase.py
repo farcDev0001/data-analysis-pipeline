@@ -1,8 +1,28 @@
 from mergeDf import getMergedDf
 import mysql.connector
 import pandas as pd
+from getEnv import getVariable
+
+def getConnexion():
+    """
+    Hace conexion con la base de datos, las credenciales en .env
+    return:
+        mySql conexion
+    """
+    return mysql.connector.connect(
+        host=getVariable('host')[0],
+        user=getVariable('user')[0],
+        passwd=getVariable('passwd')[0]
+        )
 
 def executeSchemaScript(cursor):
+    """
+    Elimina y vuelve a crear el esquema y la tabla vacíos
+    args:
+       cursor: Cursor de la conexión
+    return:
+       cursor
+    """
     cursor.execute("DROP DATABASE IF EXISTS paises")
     cursor.execute("CREATE SCHEMA IF NOT EXISTS paises DEFAULT CHARACTER SET utf8")
     cursor.execute("USE paises")
@@ -19,22 +39,27 @@ def executeSchemaScript(cursor):
     return cursor
 
 def resetDB():
+    """
+    Resetea y actualiza datos de la base de datos
+    args:
+       cursor: Cursor de la conexión
+    return:
+       cursor
+    """
     try:
         df= getMergedDf()
-        mydb = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        passwd=""
-        )
+        mydb = getConnexion()
         mycursor = mydb.cursor()
         mycursor=executeSchemaScript(mycursor)
-        for index, row in df.iterrows():
+        for _ , row in df.iterrows():
             sql="INSERT INTO DatosPaises (code,country,population,year,ingresos,gases) VALUES ({},{},{},{},{},{})".format("'{}'".format(row['Country Code']), "'{}'".format(row['Country']),row['PopAvg'], row['YEAR'],row['discharges/10**5hab'], row['gas/hab'])
             mycursor.execute(sql)
         mydb.commit()
         del mycursor
         mydb.close()
-        return 'Base de datos actualizada'
+        print('Base de datos actualizada')
     
     except Exception:
-        return 'Error Conexion'
+        print('Error Conexion')
+
+resetDB()
