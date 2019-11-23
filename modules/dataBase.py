@@ -9,11 +9,15 @@ def getConnexion():
     return:
         mySql conexion
     """
-    return mysql.connector.connect(
-        host=getVariable('host')[0],
-        user=getVariable('user')[0],
-        passwd=getVariable('passwd')[0]
-        )
+    try:
+        return mysql.connector.connect(
+            host=getVariable('host')[0],
+            user=getVariable('user')[0],
+            passwd=getVariable('passwd')[0]
+            )
+        print('Conexión exitosa')
+    except:
+        print('Error Conexion')
 
 def executeSchemaScript(cursor):
     """
@@ -41,25 +45,33 @@ def executeSchemaScript(cursor):
 def resetDB():
     """
     Resetea y actualiza datos de la base de datos
+    return:
+       None
+    """
+    df= getMergedDf()
+    mydb = getConnexion()
+    mycursor = mydb.cursor()
+    mycursor=executeSchemaScript(mycursor)
+    for _ , row in df.iterrows():
+        sql="INSERT INTO DatosPaises (code,country,population,year,ingresos,gases) VALUES ({},{},{},{},{},{})".format("'{}'".format(row['Country Code']), "'{}'".format(row['Country']),row['PopAvg'], row['YEAR'],row['discharges/10**5hab'], row['gas/hab'])
+        mycursor.execute(sql)
+    mydb.commit()
+    del mycursor
+    mydb.close()
+    print('Base de datos actualizada')
+    
+def getDfFromDB():
+    """
+    Devuelve los datos de la base de datos
     args:
        cursor: Cursor de la conexión
     return:
        cursor
     """
-    try:
-        df= getMergedDf()
-        mydb = getConnexion()
-        mycursor = mydb.cursor()
-        mycursor=executeSchemaScript(mycursor)
-        for _ , row in df.iterrows():
-            sql="INSERT INTO DatosPaises (code,country,population,year,ingresos,gases) VALUES ({},{},{},{},{},{})".format("'{}'".format(row['Country Code']), "'{}'".format(row['Country']),row['PopAvg'], row['YEAR'],row['discharges/10**5hab'], row['gas/hab'])
-            mycursor.execute(sql)
-        mydb.commit()
-        del mycursor
-        mydb.close()
-        print('Base de datos actualizada')
-    
-    except Exception:
-        print('Error Conexion')
+    mydb=getConnexion()
+    df=pd.read_sql('SELECT * FROM paises.DatosPaises',mydb).drop('id',1)
+    df.columns=['Country Code', 'Country', 'PopAvg', 'YEAR', 'discharges/10**5hab','gas/hab']
+    mydb.close()
+    return df
 
-resetDB()
+
