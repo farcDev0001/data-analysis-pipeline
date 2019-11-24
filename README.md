@@ -40,9 +40,9 @@
 
 * Adding more countries, it could be easy because de data is filtered using environment variables
 
-* Adding a security copy of data (the application dont´t works without connexion)
+* Upload database to the cloud
 
-* To use web scrapping for add countries outside of EU
+* Add a IU
  
 
 # References
