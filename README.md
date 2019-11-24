@@ -22,6 +22,9 @@
     * listCodeGas=BE DE ES UK IT TR PL RO
     * email=YOUR@EMAIL
     * password=YOUR@PASSWORD
+    * host=ipBd
+    * user=user
+    * passwd=password
 
 # Reporting
 
